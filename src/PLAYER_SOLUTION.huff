@@ -1,6 +1,27 @@
 #include "utils/CREATOR.huff"
 
 #define macro STACKIT() = takes (0) returns (11) {
+
+    
+    caller      // [ caller]
+    0x69        // [ 0x69, caller]
+    shr         // [ caller >> 0x69 ]
+    0x69        // [ 0x69, caller >> 0x69 ]
+    dup2        // [ caller >> 0x69 ,0x69, caller >> 0x69 ]
+    number      // [ number, caller >> 0x69 ,0x69, caller >> 0x69 ]
+    0x69        // [ 0x69, number, caller >> 0x69 ,0x69, caller >> 0x69 ]
+    shr         // [ number >> 0x69, 0x69, caller >> 0x69]
+    0x69        // [ 0x69, number >> 0x69, caller >> 0x69 ,0x69, caller >> 0x69 ]
+    timestamp   // [ timestamp, 0x69, number >> 0x69, caller >> 0x69 ,0x69, caller >> 0x69 ]
+    0x69        // [ 0x69, timestamp, 0x69, number >> 0x69, caller >> 0x69 ,0x69, caller >> 0x69 ]
+    shr         // [ timestamp >> 0x69 , 0x69, number >> 0x69, caller >> 0x69 ,0x69, caller >> 0x69 ]
+    0x69        // [ 0x69,  timestamp >> 0x69, 0x69, number >> 0x69, caller >> 0x69 ,0x69, caller >> 0x69 ]
+    dup7  
+    dup5
+    dup2
+    dup5
+
+
     /**
 
      <<insert solution here>>
